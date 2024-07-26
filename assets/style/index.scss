@@ -1,0 +1,415 @@
+$font-tittle: "bebas";
+$font-text: "sans-serif-pp";
+
+//estilos globales
+
+html {
+  background-color: #000;
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  font-family: $font-text;
+}
+
+.header--section {
+  z-index: 10;
+  background: url("https://blogscvc.cervantes.es/martes-neologico/wp-content/uploads/sites/2/2021/08/gif_350.gif")
+    center;
+  mask-image: linear-gradient(rgba(0, 0, 0, 0.877) 85%, transparent);
+  height: 700px;
+
+  .encabezado {
+    padding-top: 15px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    //logo del header
+    div img[alt="netflix_logotipo"] {
+      margin-left: 40px;
+      height: 50px;
+      width: auto;
+    }
+
+    ul {
+      li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+    }
+
+    .encabezado--opciones {
+      position: absolute;
+      right: 100px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+      }
+
+      div::first-child {
+        display: flex;
+      }
+
+      .perfil {
+        border-radius: 5px;
+      }
+
+      .palomita {
+        transition: transform 0.3s;
+      }
+
+      .palomita:hover {
+        transform: rotate(180deg);
+      }
+
+      /* styles.css */
+
+      .busqueda {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+
+      #search-input {
+        width: 200px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
+      .opciones--item img {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.section--carruseles {
+  position: relative;
+  bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedor-carrusel {
+  position: relative;
+  width: 95%;
+  overflow: hidden; /* Esconde el contenido que se sale del contenedor */
+  margin-bottom: 20px;
+}
+
+.carrusel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.masdelomismo {
+  display: grid;
+  p {
+    margin-left: 25px;
+    color: #868686;
+    font-family: $font-tittle;
+  }
+}
+
+.carrusel-content {
+  gap: 190px;
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.carrusel-content .portada {
+  min-width: 200px;
+  margin: 0 10px;
+}
+
+.carrusel img {
+  cursor: pointer;
+  width: 400px;
+  height: 200px;
+}
+
+.carrusel-modal img {
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+}
+
+.carrusel-content-modal {
+  gap: 40px;
+}
+
+.prev,
+.next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1; /* Asegura que el botón esté sobre otros elementos */
+}
+
+.prev {
+  left: 10px; /* Ajusta según tus necesidades */
+}
+
+.next {
+  right: 10px; /* Ajusta según tus necesidades */
+}
+
+.descripcion {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  p {
+    color: #fff;
+    font-family: $font-text;
+  }
+
+  p:hover {
+    color: rgb(95, 95, 95);
+    span {
+      display: block;
+    }
+  }
+
+  span {
+    display: none;
+  }
+}
+
+/* styles.css */
+
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijo en la pantalla */
+  z-index: 1; /* Asegura que el modal esté sobre otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite desplazarse si el contenido es largo */
+  background: rgba(0, 0, 0, 0.856);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  transition: all 1s;
+}
+
+.modal-content {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1.5px solid rgba(209, 213, 219, 0.575);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Tamaño del modal */
+  max-width: 800px;
+  position: relative;
+  border-radius: 20px;
+}
+.CRUD {
+  display: grid;
+  gap: 20px;
+  h2 {
+    color: #fff;
+    font-size: 40px;
+    font-family: $font-tittle;
+    text-align: center;
+  }
+  #add-movie-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+
+    label {
+      color: #ffffff;
+      font-family: $font-tittle;
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 3px;
+      box-sizing: border-box;
+      border-radius: 20px;
+
+      background: rgba(255, 255, 255, 0);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+
+    input::placeholder {
+      color: #c9c9c9;
+      padding-left: 10px;
+      border: none;
+    }
+
+    input:focus-visible {
+      outline: none;
+    }
+  }
+
+  button {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #00a33f;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    width: 70%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #00c74c;
+    }
+  }
+}
+select {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+
+  option {
+    color: #000;
+  }
+}
+.close {
+  color: #d65757;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-details {
+  display: grid;
+  justify-items: center;
+
+  h2,
+  p {
+    color: #ffffffda;
+  }
+  p {
+    color: #ffffff83;
+    font-family: $font-text;
+  }
+  h2 {
+    color: #ffffff;
+    font-family: $font-tittle;
+    font-size: 30px;
+  }
+}
+
+#modal-poster {
+  width: 100%;
+  height: auto;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+#modal-info {
+  flex: 1;
+}
+
+#trailer-container {
+  border-radius: 15px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+#play-trailer {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #555555;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#play-trailer:hover {
+  background-color: #8b8b8b;
+  color: #c5c5c5;
+}
+
+/* Estilos para el carrusel del modal */
+#related-carrusel {
+  margin-top: 20px;
+  position: relative;
+}
+
+#related-carrusel .carrusel-content {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+#related-carrusel .portada {
+  min-width: 150px; /* Ajusta según el diseño */
+  margin: 0 10px;
+}
+
+#related-carrusel .prev,
+#related-carrusel .next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1; /* Asegura que el botón esté sobre otros elementos */
+}
+
+#related-carrusel .prev {
+  left: 10px; /* Ajusta según tus necesidades */
+}
+
+#related-carrusel .next {
+  right: 10px; /* Ajusta según tus necesidades */
+}

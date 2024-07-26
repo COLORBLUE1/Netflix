@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/0/0c/Netflix_2015_N_logo.svg"
+      type="image/svg"
+    />
+    <link rel="stylesheet" href="/assets/style/index.css" />
+    <link rel="stylesheet" href="/assets/style/Font.css" />
+    <!--CSS PARA EVITAR PROBLEMAS, Y PERMITE QUE 
+    LOS VEGADORES MUESTRE LOS 
+    CONTENIDOS DE MANERA CORRECTA -->
+    <link rel="stylesheet" href="/assets/style/normalize.css" />
+    <title>Netflix</title>
+  </head>
+  <body>
+    <section class="header--section">
+      <header class="encabezado">
+        <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Netflix_Logomark.png"
+            alt="netflix_logotipo"
+          />
+        </div>
+        <nav>
+          <ul>
+            <li>Hogar</li>
+            <li>Series</li>
+            <li>Peliculas</li>
+            <li>Nuevo y popular</li>
+            <li>Mi lista</li>
+            <li>Navegar por idiomas</li>
+          </ul>
+        </nav>
+        <div class="encabezado--opciones">
+          <div class="opciones--item">
+            <img src="/assets/icon/search.svg" alt="icono buscar" />
+          </div>
+          <div>
+            <img
+              class="opciones--item"
+              src="/assets/icon/notifications.svg"
+              alt="icono alerta"
+            />
+          </div>
+          <div>
+            <img
+              class="opciones--item perfil"
+              src="https://avatars.githubusercontent.com/u/106413561?s=400&u=a6b3cbd811ee9c6e211750fc25395125086b44af&v=4"
+              alt="icono alerta"
+            />
+            <span>
+              <img
+                class="opciones--item palomita"
+                src="/assets/icon/drop_down.svg"
+                alt="mas opciones en header"
+              />
+             
+            </span>
+          </div>
+        </div>
+      </header>
+    </section>
+    <section class="section--carruseles">
+      <div class="contenedor-carrusel">
+          <div class="descripcion">
+              <p id="descripcion--adulto">Películas Adulto</p>
+              <span><img src="/assets/icon/right.svg" alt="ver más" /></span>
+          </div>
+          <div id="adulto" class="carrusel">
+              <button class="prev" aria-label="Anterior">&#10094;</button>
+              <div id="portada-adulto" class="carrusel-content"></div>
+              <button class="next" aria-label="Siguiente">&#10095;</button>
+          </div>
+      </div>
+      <div class="contenedor-carrusel">
+          <div class="descripcion">
+              <p id="descripcion--infantil">Películas Infantiles</p>
+              <span><img src="/assets/icon/right.svg" alt="ver más" /></span>
+          </div>
+          <div id="infantil" class="carrusel">
+              <button class="prev" aria-label="Anterior">&#10094;</button>
+              <div id="portada-infantil" class="carrusel-content"></div>
+              <button class="next" aria-label="Siguiente">&#10095;</button>
+          </div>
+      </div>
+  </section>
+
+ <!-- Modal detalles de peliculas-->
+ <div id="movie-modal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modal-details">
+          <img id="modal-poster" src="" alt="Póster de la película" />
+          <div id="modal-info">
+              <h2 id="modal-title"></h2>
+              <p id="modal-description"></p>
+              <button id="play-trailer">Reproducir tráiler</button>
+          </div>
+      </div>
+      <div id="trailer-container" style="display:none;">
+          <iframe id="trailer-video" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div id="related-carrusel" class="carrusel masdelomismo carrusel-modal">
+          <p>Mas del mismo tipo</p>
+          <button class="prev" aria-label="Anterior">&#10094;</button>
+          <div id="related-movies" class="carrusel-content carrusel-content-modal"></div>
+          <button class="next" aria-label="Siguiente">&#10095;</button>
+      </div>
+  </div>
+</div>
+
+  <!-- Modal para agregar una película -->
+<div id="add-movie-modal" class="modal">
+  <div class="modal-content CRUD">
+      <span class="close">&times;</span>
+      <h2>Agregar Nueva Pelicula</h2>
+      <form id="add-movie-form">
+          <label for="title">Titulo:</label>
+          <input type="text" id="title" name="title" required>
+
+          <label for="description">Descripcion:</label>
+          <textarea id="description" name="description" required></textarea>
+
+          <label for="poster">URL del Poster:</label>
+          <input type="text" id="poster" name="poster" required>
+
+          <label for="trailer">URL del Trailer:</label>
+          <input type="text" id="trailer" name="trailer">
+
+          <label for="type">Tipo:</label>
+          <select id="type" name="type" required>
+              <option value="Adulto">Adulto</option>
+              <option value="Infantil">Infantil</option>
+          </select>
+
+          <button type="submit">Agregar Pelicula</button>
+      </form>
+  </div>
+</div>
+
+    <footer></footer>
+  </body>
+  <script src="/Model/api.js"></script>
+  <script src="/Controller/build.js"></script>
+  <script src="/assets/js/index.js"></script>
+</html>
