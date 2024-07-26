@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const response = await fetch(apiUrl);
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             const data = await response.json();
-            console.log("Datos obtenidos:", data); // Verifica los datos obtenidos
+          
             const peliculas = data.record.movies; // Ajusta según la estructura de los datos
 
             // Contenedores para las portadas
@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Generar y mostrar portadas
             peliculas.forEach((pelicula) => {
-                console.log("Procesando película:", pelicula); // Verifica cada objeto de película
                 const div = document.createElement("div");
                 div.className = "portada";
                 div.dataset.title = pelicula.Title;

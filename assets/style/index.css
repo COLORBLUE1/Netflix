@@ -122,6 +122,14 @@ li {
   cursor: pointer;
   width: 400px;
   height: 200px;
+  position: relative;
+  transition: all 0.5s;
+  transition-delay: 0.5s;
+}
+
+.carrusel img:hover {
+  scale: 1.2;
+  z-index: 40;
 }
 
 .carrusel-modal img {
